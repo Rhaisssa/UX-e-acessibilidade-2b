@@ -1,11 +1,356 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segurança Digital para Idosos</title>
+    <meta name="description" content="Plataforma educativa sobre UX e acessibilidade na web, com componentes inclusivos e boas práticas WCAG.">
+    <title>UX e Acessibilidade: Interfaces Inclusivas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="#conteudo-principal" class="pular-link">Pular para conteúdo principal</a>
     
+    <header role="banner">
+        <div class="container">
+            <h1>UX e Acessibilidade</h1>
+            <p class="subtitulo">Desenvolvendo Interfaces Inclusivas para Todos</p>
+        </div>
+    </header>
+
+    <nav role="navigation" aria-label="Menu principal">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+            <span class="hamburger"></span>
+            <span class="sr-only">Menu</span>
+        </button>
+        <ul id="menu-items" class="nav-menu">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#componentes">Componentes</a></li>
+            <li><a href="#dicas">Dicas Práticas</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main id="conteudo-principal">
+        <!-- Seção Sobre -->
+        <section id="sobre" class="section">
+            <div class="container">
+                <h2>Sobre Acessibilidade Web</h2>
+                <div class="cards-container">
+                    <article class="card">
+                        <h3>O que é Acessibilidade?</h3>
+                        <p>Acessibilidade web significa garantir que qualquer pessoa possa utilizar um website, independentemente de suas habilidades ou limitações.</p>
+                        <ul>
+                            <li>Usuários com deficiência visual</li>
+                            <li>Usuários com deficiência auditiva</li>
+                            <li>Usuários com mobilidade reduzida</li>
+                            <li>Usuários idosos</li>
+                            <li>Usuários em conexões lentas</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Por que é Importante?</h3>
+                        <p>Sites acessíveis beneficiam a todos, não apenas pessoas com deficiências.</p>
+                        <ul>
+                            <li>Melhora SEO e visibilidade</li>
+                            <li>Aumenta alcance do público</li>
+                            <li>Melhora experiência geral do usuário</li>
+                            <li>Cumprimento legal (LGPD)</li>
+                            <li>Melhora reputação da marca</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Princípios WCAG</h3>
+                        <p>As Diretrizes de Acessibilidade para Conteúdo Web (WCAG) definem 4 princípios:</p>
+                        <ol>
+                            <li><strong>Perceptível:</strong> Conteúdo visível e identificável</li>
+                            <li><strong>Operável:</strong> Navegação por teclado</li>
+                            <li><strong>Compreensível:</strong> Linguagem clara e previsível</li>
+                            <li><strong>Robusto:</strong> Compatível com assistive tech</li>
+                        </ol>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Componentes Interativos -->
+        <section id="componentes" class="section bg-light">
+            <div class="container">
+                <h2>Componentes Acessíveis</h2>
+
+                <!-- Exemplo 1: Formulário -->
+                <article class="component">
+                    <h3>1. Formulário com Validação</h3>
+                    <form id="formulario-exemplo" novalidate>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo <span aria-label="obrigatório">*</span></label>
+                            <input 
+                                type="text" 
+                                id="nome" 
+                                name="nome" 
+                                required 
+                                aria-required="true"
+                                aria-describedby="nome-erro"
+                                placeholder="Digite seu nome"
+                            >
+                            <span id="nome-erro" class="erro" role="alert"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span aria-label="obrigatório">*</span></label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                aria-required="true"
+                                aria-describedby="email-erro"
+                                placeholder="seu@email.com"
+                            >
+                            <span id="email-erro" class="erro" role="alert"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem <span aria-label="obrigatório">*</span></label>
+                            <textarea 
+                                id="mensagem" 
+                                name="mensagem" 
+                                required 
+                                aria-required="true"
+                                aria-describedby="mensagem-erro"
+                                placeholder="Digite sua mensagem"
+                                rows="4"
+                            ></textarea>
+                            <span id="mensagem-erro" class="erro" role="alert"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        <span id="status-form" aria-live="polite" aria-atomic="true"></span>
+                    </form>
+                </article>
+
+                <!-- Exemplo 2: Acordeão -->
+                <article class="component">
+                    <h3>2. Acordeão Acessível</h3>
+                    <div class="accordion">
+                        <h4>
+                            <button 
+                                class="accordion-btn" 
+                                aria-expanded="false"
+                                aria-controls="panel-1"
+                            >
+                                O que são tecnologias assistivas?
+                                <span class="icon" aria-hidden="true"></span>
+                            </button>
+                        </h4>
+                        <div id="panel-1" class="accordion-panel" hidden>
+                            <p>Tecnologias assistivas são ferramentas que ajudam pessoas com deficiências a usar computadores. Incluem leitores de tela, ampliadores de texto, switches de acesso, e muito mais.</p>
+                        </div>
+
+                        <h4>
+                            <button 
+                                class="accordion-btn" 
+                                aria-expanded="false"
+                                aria-controls="panel-2"
+                            >
+                                Como testar acessibilidade?
+                                <span class="icon" aria-hidden="true"></span>
+                            </button>
+                        </h4>
+                        <div id="panel-2" class="accordion-panel" hidden>
+                            <p>Você pode testar navegando apenas com o teclado (Tab, Enter, Setas), usando ferramentas como Lighthouse, WAVE ou Axe DevTools, e validando com leitores de tela como NVDA.</p>
+                        </div>
+
+                        <h4>
+                            <button 
+                                class="accordion-btn" 
+                                aria-expanded="false"
+                                aria-controls="panel-3"
+                            >
+                                Qual é a importância do contraste?
+                                <span class="icon" aria-hidden="true"></span>
+                            </button>
+                        </h4>
+                        <div id="panel-3" class="accordion-panel" hidden>
+                            <p>Contraste adequado entre texto e fundo é essencial para legibilidade. A proporção deve ser pelo menos 4.5:1 para texto normal e 3:1 para texto grande, conforme WCAG.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exemplo 3: Abas Acessíveis -->
+                <article class="component">
+                    <h3>3. Abas com Navegação</h3>
+                    <div class="tabs" role="tablist" aria-label="Exemplo de abas">
+                        <button 
+                            role="tab" 
+                            aria-selected="true" 
+                            aria-controls="painel-dicas"
+                            id="tab-dicas"
+                            class="tab-button"
+                        >
+                            Dicas Rápidas
+                        </button>
+                        <button 
+                            role="tab" 
+                            aria-selected="false" 
+                            aria-controls="painel-cores"
+                            id="tab-cores"
+                            class="tab-button"
+                        >
+                            Cores
+                        </button>
+                        <button 
+                            role="tab" 
+                            aria-selected="false" 
+                            aria-controls="painel-navegacao"
+                            id="tab-navegacao"
+                            class="tab-button"
+                        >
+                            Navegação
+                        </button>
+                    </div>
+
+                    <div id="painel-dicas" role="tabpanel" aria-labelledby="tab-dicas" class="tabpanel">
+                        <h4>Dicas para Acessibilidade</h4>
+                        <ul>
+                            <li>Use cores semanticamente significativas</li>
+                            <li>Não confie apenas em cor para comunicar informação</li>
+                            <li>Use fontes legíveis (mínimo 16px)</li>
+                            <li>Forneça alternativas de texto (alt text) para imagens</li>
+                        </ul>
+                    </div>
+
+                    <div id="painel-cores" role="tabpanel" aria-labelledby="tab-cores" class="tabpanel" hidden>
+                        <h4>Contraste de Cores</h4>
+                        <p>Exemplo de diferentes contrastes:</p>
+                        <div class="contrast-example">
+                            <div class="contrast-box bad">Contraste ruim (falha)</div>
+                            <div class="contrast-box good">Contraste adequado (passa)</div>
+                        </div>
+                    </div>
+
+                    <div id="painel-navegacao" role="tabpanel" aria-labelledby="tab-navegacao" class="tabpanel" hidden>
+                        <h4>Navegação por Teclado</h4>
+                        <p>Usuários devem navegar todo o site usando apenas o teclado:</p>
+                        <ul>
+                            <li><kbd>Tab</kbd> - Move para o próximo elemento focável</li>
+                            <li><kbd>Shift + Tab</kbd> - Move para o elemento anterior</li>
+                            <li><kbd>Enter</kbd> - Ativa botões e links</li>
+                            <li><kbd>Setas</kbd> - Navega dentro de componentes</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Exemplo 4: Indicador de Progresso -->
+                <article class="component">
+                    <h3>4. Indicador de Progresso com ARIA</h3>
+                    <div class="progress-container">
+                        <label for="progresso">Carregamento: <span id="valor-progresso">0</span>%</label>
+                        <progress 
+                            id="progresso" 
+                            max="100" 
+                            value="0"
+                            aria-label="Progresso do carregamento"
+                        ></progress>
+                        <button id="btn-progresso" class="btn btn-secondary">Iniciar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Seção Dicas Práticas -->
+        <section id="dicas" class="section">
+            <div class="container">
+                <h2>Checklist de Acessibilidade</h2>
+                <form id="checklist" class="checklist">
+                    <fieldset>
+                        <legend>Elementos Essenciais</legend>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check1" name="essencial">
+                            <label for="check1">HTML semântico (nav, main, section, article, header, footer)</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check2" name="essencial">
+                            <label for="check2">Labels associados a inputs (for/id)</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check3" name="essencial">
+                            <label for="check3">Alt text em imagens descritivo</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check4" name="essencial">
+                            <label for="check4">Navegação por teclado completa</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check5" name="essencial">
+                            <label for="check5">Foco visível em todos os elementos interativos</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check6" name="essencial">
+                            <label for="check6">Contraste texto/fundo 4.5:1</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check7" name="essencial">
+                            <label for="check7">Tamanho de fonte legível (mínimo 14px)</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check8" name="essencial">
+                            <label for="check8">Espaçamento adequado entre elementos</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check9" name="essencial">
+                            <label for="check9">ARIA labels em componentes complexos</label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="check10" name="essencial">
+                            <label for="check10">Sem piscar/animar por mais de 3 segundos</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="stats">
+                        <p role="status" aria-live="polite">
+                            Itens completados: <strong id="contador">0</strong> de 10
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="section bg-light">
+            <div class="container">
+                <h2>Saiba Mais</h2>
+                <p>Aprenda mais sobre acessibilidade web visitando os recursos abaixo:</p>
+                <ul class="resources-list">
+                    <li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative (WAI)</a></li>
+                    <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a></li>
+                    <li><a href="https://www.acessibilidade.net/" target="_blank" rel="noopener noreferrer">Portal da Acessibilidade</a></li>
+                    <li><a href="https://www.gov.br/cidadania/pt-br/acesso-a-informacao/perguntas-frequentes/lgpd-acessibilidade" target="_blank" rel="noopener noreferrer">LGPD e Acessibilidade</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Projeto de UX e Acessibilidade. Desenvolvido com ♥ para inclusão digital.</p>
+            <p>
+                <a href="#top">Voltar ao topo</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
